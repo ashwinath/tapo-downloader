@@ -33,7 +33,7 @@ def delete_old_files():
 
 async def download_async():
     print("Getting recordings...")
-    current_date = arrow.utcnow().shift(days=retain_days-1).floor("day")
+    current_date = arrow.utcnow().shift(days=-(retain_days-1)).floor("day")
     while current_date < arrow.utcnow():
         current_date_formatted = current_date.format('YYYYMMDD')
 
