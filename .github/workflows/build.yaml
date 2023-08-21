@@ -1,11 +1,8 @@
 name: tapo-downloader
 on:
   push:
-    paths:
-      - ".github/workflows/curljq.yaml"
-      - "curl-jq/**"
     branches:
-    - master
+    - main
 
 jobs:
   build:
