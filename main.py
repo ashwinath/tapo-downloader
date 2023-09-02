@@ -28,8 +28,8 @@ def delete_old_files():
     for file in files:
         start_date = file.split(" ")[0]
         arrow_start_date = arrow.get(start_date)
-        print(arrow_start_date)
         if arrow_start_date < clear_from_date:
+            print(f"deleting recording: {file}")
             os.remove(os.path.join(output_dir, file))
 
 async def download_async():
