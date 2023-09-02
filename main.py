@@ -22,14 +22,16 @@ print("Connecting to camera...")
 tapo = Tapo(host, "admin", password_cloud, password_cloud)
 
 def delete_old_files():
-    clear_from_date = arrow.utcnow().shift(days=retain_days)
+    print("deleting old files.")
+    clear_from_date = arrow.utcnow().shift(days=-retain_days)
     files = os.listdir(output_dir)
     for file in files:
         start_date = file.split(" ")[0]
         arrow_start_date = arrow.get(start_date)
+        print(arrow_start_date)
         if arrow_start_date < clear_from_date:
             print(f"deleting recording: {file}")
-            os.remove(os.path.join(output_dir, file))
+            # os.remove(os.path.join(output_dir, file))
 
 async def download_async():
     print("Getting recordings...")
@@ -71,5 +73,5 @@ async def download_async():
 
 
 delete_old_files()
-loop = asyncio.get_event_loop()
-loop.run_until_complete(download_async())
+# loop = asyncio.get_event_loop()
+# loop.run_until_complete(download_async())
