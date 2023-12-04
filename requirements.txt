@@ -3,7 +3,7 @@ certifi==2023.7.22
 charset-normalizer==3.2.0
 idna==3.4
 pycryptodome==3.18.0
-pytapo==3.2
+pytapo==3.3.18
 python-dateutil==2.8.2
 requests==2.31.0
 rtp==0.0.3
